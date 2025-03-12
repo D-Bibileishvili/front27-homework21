@@ -79,13 +79,10 @@ function formValidaton() {
   const isConfPassword = () => {
     const val = confirm.value.trim();
     if (val === "") {
-      showErrorMessage(passwordInput, "Confirm-Password is valid");
+      showErrorMessage(confirm, "Confirm-Password is valid");
       return false;
-    } else if (val !== passwordInput.value) {
-      showErrorMessage(
-        passwordInput,
-        "Confirm-Password must be same as Password "
-      );
+    } else if (val !== confirm.value) {
+      showErrorMessage(confirm, "Confirm-Password must be same as Password ");
       return false;
     } else {
       showSuccessMessage(passwordInput, "Password is valid");
