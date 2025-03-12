@@ -115,7 +115,7 @@ function formValidaton() {
     const val = mobile.value.trim();
     const numberRegExp = /^\d{9}$/;
     if (val === "") {
-      showErrorMessage(mobile, "Mobile-number is required");
+      showErrorMessage(mobile, "Mobile-Number is required");
       return false;
     } else if (val.length !== 9) {
       showErrorMessage(mobile, "Mobile number must consist of 9 characters.");
@@ -124,7 +124,7 @@ function formValidaton() {
       showErrorMessage(mobile, "Only numbers");
       return false;
     } else {
-      showSuccessMessage(mobile, "Mobile number is valid");
+      showSuccessMessage(mobile, "Mobile-Number is valid");
       return true;
     }
   };
@@ -135,6 +135,7 @@ function formValidaton() {
   passwordInput.addEventListener("input", isPasswordValid);
   confirm.addEventListener("input", isConfPassword);
   personal.addEventListener("input", isPersonalValid);
+  mobile.addEventListener("input", isMobileValid);
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
