@@ -93,11 +93,48 @@ function formValidaton() {
     }
   };
 
+  const isPersonalValid = () => {
+    const val = personal.value.trim();
+    const numberRegExp = /^\d{11}$/;
+    if (val === "") {
+      showErrorMessage(personal, "Personal-number is required");
+      return false;
+    } else if (val.length !== 11) {
+      showErrorMessage(personal, "Personal-Number must be min 6 characters");
+      return false;
+    } else if (!numberRegExp.test(val)) {
+      showErrorMessage(personal, "Only numbers");
+      return false;
+    } else {
+      showSuccessMessage(passwordInput, "Personal-number is valid");
+      return true;
+    }
+  };
+
+  const isMobileValid = () => {
+    const val = mobile.value.trim();
+    const numberRegExp = /^\d{9}$/;
+    if (val === "") {
+      showErrorMessage(mobile, "Mobile-number is required");
+      return false;
+    } else if (val.length !== 9) {
+      showErrorMessage(mobile, "Mobile number must consist of 9 characters.");
+      return false;
+    } else if (!numberRegExp.test(val)) {
+      showErrorMessage(mobile, "Only numbers");
+      return false;
+    } else {
+      showSuccessMessage(mobile, "Mobile number is valid");
+      return true;
+    }
+  };
+
   nameInput.addEventListener("input", isNameValid);
   emailInput.addEventListener("input", isEmailValid);
   ageInput.addEventListener("input", isAgeValid);
   passwordInput.addEventListener("input", isPasswordValid);
   confirm.addEventListener("input", isConfPassword);
+  personal.addEventListener("input", isPersonalValid);
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -106,8 +143,18 @@ function formValidaton() {
     const ageValid = isAgeValid();
     const passwordValid = isPasswordValid();
     const confirmpass = isConfPassword();
+    const Personal = isPersonalValid();
+    const mobileValid = isMobileValid();
 
-    if (nameValid && emailValid && ageValid && passwordValid && confirmpass) {
+    if (
+      nameValid &&
+      emailValid &&
+      ageValid &&
+      passwordValid &&
+      confirmpass &&
+      Personal &&
+      mobileValid
+    ) {
       console.log("form is valid");
     }
   });
