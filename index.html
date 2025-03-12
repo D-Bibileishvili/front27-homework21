@@ -30,7 +30,37 @@
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" />
+          <input type="password" id="password" name="password" required />
+          <span class="error-message"></span>
+        </div>
+        <div class="form-group">
+          <label for="ConfPassword">Confirm-Password</label>
+          <input
+            type="password"
+            id="ConfPassword"
+            name="ConfPassword"
+            required
+          />
+          <span class="error-message"></span>
+        </div>
+        <div class="form-group">
+          <label for="personal-number">Personal-Number</label>
+          <input
+            type="text"
+            id="personal-number"
+            name="personal-number"
+            required
+          />
+          <span class="error-message"></span>
+        </div>
+        <div class="form-group">
+          <label for="mobile-number">Mobile-Number</label>
+          <input
+            type="number"
+            id="mobile-number"
+            name="mobile-number"
+            required
+          />
           <span class="error-message"></span>
         </div>
         <button type="submit">submit</button>
